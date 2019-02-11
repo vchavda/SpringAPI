@@ -1,0 +1,13 @@
+- Need method to look at every field and value within the response
+- need a method that can gather all values which are of an acceptable value
+- need a common utility that we can plug in for all 'micro services'
+- need to use jayway libraries ? for faster and more efficient then looping through multi-nested DTO's
+- need away of dynamically created post bodies
+- need away of posting with manditory and dynamic headers
+- need away of executing end points with query parameters dynamically
+- need pipelines and procedures in place
+- need to think about CI tests going forward that would run across multiple micro services
+- need test naming standards that PO/BA can understand for sign off (if we are not using cucumber)
+- Need to think about test data and how this will change in the future - so need to make it data independednt
+- Need to think about how we going to test synonyms and phhonetics
+
