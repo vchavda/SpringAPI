@@ -1,0 +1,10 @@
+
+rsquid:S00120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(ßÚ·§
+fsquid:S00100"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(«Ñ¨ü
+ksquid:S00100"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ò‰˜­şÿÿÿÿ
+tsquid:S00116"\Rename this field "html_attributions" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.( Øé
+nsquid:S00117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ò‰˜­şÿÿÿÿ
+fsquid:S00100%"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(éÈì¶
+wsquid:S00116"ZRename this field "photo_reference" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ñ€Ö½øÿÿÿÿ
+isquid:S00117%"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(éÈì¶
+ksquid:S00100!"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¼Ò™—şÿÿÿÿ

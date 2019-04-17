@@ -1,4 +1,4 @@
-package config;
+package tstConfig;
 import io.restassured.RestAssured;
 import io.restassured.filter.log.RequestLoggingFilter;
 import io.restassured.filter.log.ResponseLoggingFilter;
@@ -7,12 +7,13 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
-import org.springframework.context.support.PropertySourcesPlaceholderConfigurer;
+import testUtils.AutowireTestClass;
+
 import javax.annotation.PostConstruct;
 
 // need this bit to read property file value to propertySource
 @Configuration
-@ComponentScan(basePackages = {"config.*"})
+@ComponentScan(basePackages = {"config.*", "testUtils.*"})
 @PropertySource(value = "classpath:application.properties")
 @PropertySource(value = "file:c:/test/${user}/common.properties", ignoreResourceNotFound = true)
 
@@ -34,4 +35,10 @@ public class AppConfig {
         // this will log out to console the request and response
         RestAssured.filters(new RequestLoggingFilter(), new ResponseLoggingFilter());
     }
+
+    @Bean
+    public AutowireTestClass helloworld() {
+        return new AutowireTestClass();
+    }
+
 }

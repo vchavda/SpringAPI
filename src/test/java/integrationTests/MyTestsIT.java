@@ -1,7 +1,8 @@
 package integrationTests;
 
-import config.AppConfig;
-import io.restassured.RestAssured;
+import org.springframework.beans.factory.annotation.Autowired;
+import testUtils.AutowireTestClass;
+import tstConfig.AppConfig;
 import io.restassured.response.Response;
 import net.serenitybdd.junit.spring.integration.SpringIntegrationSerenityRunner;
 import net.serenitybdd.rest.RestRequests;
@@ -10,9 +11,7 @@ import org.junit.Test;
 import domainDtos.*;
 import org.junit.runner.RunWith;
 import org.springframework.test.context.ContextConfiguration;
-import org.springframework.test.context.TestPropertySource;
 
-import javax.security.auth.login.Configuration;
 import java.util.*;
 
 import static org.hamcrest.CoreMatchers.is;
@@ -22,6 +21,9 @@ import com.jayway.jsonpath.*;
 @RunWith(SpringIntegrationSerenityRunner.class)
 @ContextConfiguration(classes = {AppConfig.class})
 public class MyTestsIT {
+
+    @Autowired
+    private AutowireTestClass autowireTestClass;
 
     Map<String, String> rightHereMap = new HashMap<String, String>()
     {
@@ -34,7 +36,8 @@ public class MyTestsIT {
     @Test
     public void firstTest()
     {
-
+        autowireTestClass.setMyText("** HELLO **");
+        System.out.println("Setting AutowireTestClass to : " + autowireTestClass.getMyText());
 
         googleData googleData = RestRequests.given().queryParams(rightHereMap).
                 get("/maps/api/place/textsearch/json").as(domainDtos.googleData.class);
