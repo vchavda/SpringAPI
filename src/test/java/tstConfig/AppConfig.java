@@ -13,7 +13,7 @@ import javax.annotation.PostConstruct;
 
 // need this bit to read property file value to propertySource
 @Configuration
-@ComponentScan(basePackages = {"config.*", "testUtils.*"})
+@ComponentScan({"testUtils.**"})
 @PropertySource(value = "classpath:application.properties")
 @PropertySource(value = "file:c:/test/${user}/common.properties", ignoreResourceNotFound = true)
 
@@ -26,7 +26,9 @@ public class AppConfig {
     @Value("${user}")
     private String user;
 
-    //PThe PostConstruct annotation is used on a method that needs to be executed after dependency injection is done
+
+
+    //The PostConstruct annotation is used on a method that needs to be executed after dependency injection is done
     // to perform any initialization. This method MUST be invoked before the class is put into service.
     @PostConstruct
     public void configureRestAssured() {
@@ -36,9 +38,9 @@ public class AppConfig {
         RestAssured.filters(new RequestLoggingFilter(), new ResponseLoggingFilter());
     }
 
-    @Bean
-    public AutowireTestClass helloworld() {
-        return new AutowireTestClass();
-    }
+//    @Bean
+//    public AutowireTestClass helloworld() {
+//        return new AutowireTestClass();
+//    }
 
 }

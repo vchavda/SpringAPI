@@ -54,8 +54,6 @@
 				<artifactId>jackson-datatype-jdk8</artifactId>
 				<version>2.9.6</version>
 			</dependency>
-
-
 			<dependency>
 				<groupId>net.serenity-bdd</groupId>
 				<artifactId>serenity-junit</artifactId>
@@ -106,6 +104,14 @@
 				<artifactId>json-flattener</artifactId>
 				<version>0.6.0</version>
 			</dependency>
+
+			<dependency>
+				<groupId>com.github.tomakehurst</groupId>
+				<artifactId>wiremock-jre8-standalone</artifactId>
+				<version>2.23.2</version>
+				<scope>test</scope>
+			</dependency>
+
 
 		</dependencies>
 

@@ -1,6 +1,9 @@
 package integrationTests;
 
+import com.github.wnameless.json.flattener.JsonFlattener;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.stereotype.Component;
 import testUtils.AutowireTestClass;
 import tstConfig.AppConfig;
 import io.restassured.response.Response;
@@ -23,6 +26,7 @@ import com.jayway.jsonpath.*;
 public class MyTestsIT {
 
     @Autowired
+    //@Qualifier("bean1")
     private AutowireTestClass autowireTestClass;
 
     Map<String, String> rightHereMap = new HashMap<String, String>()
@@ -90,9 +94,21 @@ public class MyTestsIT {
 
 
     @Test
-    public void fourthTest()
-    {
+    public void JSonFlattnerTest() {
+        // this is probably good when you want to test for freetext in any node
+        // you can just flatten the JSON rather than traversing through it.
+        String json = "{ \"a\" : { \"b\" : 1, \"c\": 2, \"d\": [false, true] }, \"e\": \"f\", \"g\":2.3 }";
+        Map<String, Object> flattenJson = JsonFlattener.flattenAsMap(json);
+        System.out.println(flattenJson);
+        flattenJson.forEach((k, v) -> System.out.println(k + " : " + v));
 
+        for (Map.Entry<String, Object> entry : flattenJson.entrySet()) {
+
+            if (entry.getValue().equals("f")) {
+                System.out.println(" free text found ");
+            }
+
+        }
     }
 
 
